@@ -16,12 +16,24 @@ namespace YFinder.Models
 
     [Required]
     [StringLength(50)]
+    public string City { get; set; }
+
+    [Required]
+    [StringLength(2)]
+    public string State { get; set; }
+
+    [Required]
+    [StringLength(50)]
     public string Title { get; set; }
 
     [Required]
     public int UserId { get; set; }
 
     public User? User { get; set; }  // Host user must be Host == 1 (true)
+
+    [Required]
+    [StringLength(5)]
+    public int Zip { get; set; }
 
   }
 }

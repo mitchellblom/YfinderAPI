@@ -11,7 +11,7 @@ namespace YFinder.Models
     public int DescriptorId { get; set; }
 
     [StringLength(100)]
-    public string? Descriptor { get; set; }
+    public string? Description { get; set; }
 
     public virtual ICollection<RatingDescriptor> RatingDescriptor { get; set ; }
     

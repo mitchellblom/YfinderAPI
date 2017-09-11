@@ -11,6 +11,9 @@ namespace YFinder.Models
     public int HotspotId { get; set; }
 
     [Required]
+    public int HostId { get; set; }
+
+    [Required]
     [StringLength(100)]
     public string Title { get; set; }
     
