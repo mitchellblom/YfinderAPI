@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BangazonAPI.Models
+namespace YFinder.Models
 {
   public class Order
   {
@@ -18,8 +18,6 @@ namespace BangazonAPI.Models
     [Required]
     public int CustomerId { get; set; }
     public Customer Customer { get; set; }
-    public int? PaymentTypeId { get; set;} // ? means that the variable can be null
-    public PaymentType PaymentType { get; set; }
 
     public ICollection<OrderProduct> OrderProducts;
 

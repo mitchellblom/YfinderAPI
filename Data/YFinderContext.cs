@@ -1,11 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-using BangazonAPI.Models;
+using YFinder.Models;
 
-namespace BangazonAPI.Data
+namespace YFinder.Data
 {
-    public class BangazonContext : DbContext
+    public class YFinderContext : DbContext
     {
-        public BangazonContext(DbContextOptions<BangazonContext> options)
+        public YFinderContext(DbContextOptions<YFinderContext> options)
             : base(options)
         { }
 
