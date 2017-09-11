@@ -14,13 +14,13 @@ namespace YFinder.Models
     public int RatingId { get; set; }
 
     [Required]
-    public Rating Rating { get; set; }
+    public virtual Rating Rating { get; set; }
 
     [Required]
     public int DescriptorId { get; set; }
 
     [Required]
-    public Descriptor Descriptor { get; set; }
+    public virtual Descriptor Descriptor { get; set; }
 
   }
 }

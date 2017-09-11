@@ -10,8 +10,7 @@ namespace YFinder.Models
     [Key]
     public int RatingId { get; set; }
 
-    [Required]
-    public string Comment { get; set; }
+    public string? Comment { get; set; }
 
     [Required]
     [DataType(DataType.Date)]
@@ -30,10 +29,11 @@ namespace YFinder.Models
     public int? Rating { get; set; }
 
     [Required]
+    [ForeignKey("User")]
     public int UserId { get; set; }
-
-    [Required]
     public User User { get; set; }
+
+    public virtual ICollection<RatingDescriptor> RatingDescriptor { get; set ; }
 
   }
 }

@@ -10,9 +10,10 @@ namespace YFinder.Models
     [Key]
     public int DescriptorId { get; set; }
 
-    [Required]
     [StringLength(100)]
-    public string Descriptor { get; set; }
+    public string? Descriptor { get; set; }
+
+    public virtual ICollection<RatingDescriptor> RatingDescriptor { get; set ; }
     
   }
 }

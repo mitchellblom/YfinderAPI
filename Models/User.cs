@@ -11,13 +11,13 @@ namespace YFinder.Models
     public int UserId { get; set; }
 
     [StringLength(140)]
-    public string Bio { get; set; }
+    public string? Bio { get; set; }
 
     [Required]
     public string Email { get; set; }
 
     [StringLength(50)]
-    public string FullName { get; set; }
+    public string? FullName { get; set; }
 
     [Required]
     public int Host { get; set; } // int as bool

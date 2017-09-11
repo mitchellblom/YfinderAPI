@@ -21,8 +21,7 @@ namespace YFinder.Models
     [Required]
     public int UserId { get; set; }
 
-    [Required]
-    public User User { get; set; }  // Host user must be Host == 1 (true)
+    public User? User { get; set; }  // Host user must be Host == 1 (true)
 
   }
 }
