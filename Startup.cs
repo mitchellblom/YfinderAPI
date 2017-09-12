@@ -42,7 +42,6 @@ namespace YFinder
             // Add framework services.
             services.AddMvc();
 
-
             string path = System.Environment.GetEnvironmentVariable("YFINDER_DB");
             var connection = $"Filename={path}";
             Console.WriteLine($"connection = {connection}");
