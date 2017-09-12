@@ -9,14 +9,12 @@ namespace YFinder.Data
             : base(options)
         { }
 
-        public DbSet<Order> Order { get; set; }
-        public DbSet<OrderProduct> OrderProduct { get; set; }
+        public DbSet<Descriptor> Descriptor { get; set; }
+        public DbSet<Host> Host { get; set; }
+        public DbSet<Hotspot> Hotspot { get; set; }
+        public DbSet<Rating> Rating { get; set; }
+        public DbSet<RatingDescriptor> RatingDescriptor { get; set; }
+        public DbSet<User> User { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Order>()
-                .Property(b => b.DateCreated)
-                .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
-        }
     }
 }
