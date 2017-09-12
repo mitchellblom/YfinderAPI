@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Cors;
 
-namespace YFinder.Controllers
+namespace YFinderAPI.Controllers
 {
     [Route("api/[controller]")]
     [EnableCors("AllowWhiteListOrigins")]

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace YFinder.Models
+namespace YFinderAPI.Models
 {
   public class Rating
   {
     [Key]
     public int RatingId { get; set; }
 
-    public string? Comment { get; set; }
+    public string Comment { get; set; }
 
     [Required]
     [DataType(DataType.Date)]
@@ -26,7 +26,7 @@ namespace YFinder.Models
     public int Public { get; set; } // int as bool
 
     [Required]
-    public int Rating { get; set; }
+    public int Score { get; set; }
 
     [Required]
     public float? Speed { get; set; }

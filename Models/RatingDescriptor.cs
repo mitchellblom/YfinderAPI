@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace YFinder.Models
 {
-  public class Hotspot
+  public class RatingDescriptor
   {
     [Key]
     public int RatingDescriptorId { get; set; }

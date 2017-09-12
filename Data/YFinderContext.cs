@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using YFinder.Models;
+
+using YFinderAPI.Models;
 
 namespace YFinder.Data
 {

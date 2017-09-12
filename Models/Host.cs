@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace YFinder.Models
+namespace YFinderAPI.Models
 {
   public class Host
   {
@@ -29,7 +29,7 @@ namespace YFinder.Models
     [Required]
     public int UserId { get; set; }
 
-    public User? User { get; set; }  // Host user must be Host == 1 (true)
+    public User User { get; set; }  // Host user must be Host == 1 (true)
 
     [Required]
     [StringLength(5)]

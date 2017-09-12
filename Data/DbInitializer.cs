@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using YFinderAPI.Models;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using YFinder.Data;
+using YFinder.Models;
 
 namespace YFinderAPI.Data
 {
@@ -14,7 +16,7 @@ namespace YFinderAPI.Data
         {
             using (var context = new YFinderContext(serviceProvider.GetRequiredService<DbContextOptions<YFinderContext>>()))
             {
-                if (context.Customer.Any())
+                if (context.User.Any())
                 {
                     return;
                 }
@@ -158,7 +160,7 @@ namespace YFinderAPI.Data
                         RatingDate = DateTime.Now;
                         HotspotId = hotspots.Single(h => h.Title == "BongoWifi").HotspotId,
                         Public = true,
-                        Rating = 4,
+                        Score = 4,
                         User = users.Single(h => h.FullName == "Jango Fett").UserId
                     },
                     new Rating { 
@@ -166,7 +168,7 @@ namespace YFinderAPI.Data
                         RatingDate = DateTime.Now;
                         HotspotId = hotspots.Single(h => h.Title == "BruinWifi").HotspotId,
                         Public = true,
-                        Rating = 4,
+                        Score = 4,
                         User = users.Single(h => h.FullName == "Val Kilmer").UserId
                     },
                     new Rating { 
@@ -174,7 +176,7 @@ namespace YFinderAPI.Data
                         RatingDate = DateTime.Now;
                         HotspotId = hotspots.Single(h => h.Title == "SteadfastWifi").HotspotId,
                         Public = true,
-                        Rating = 5,
+                        Score = 5,
                         User = users.Single(h => h.FullName == "Val Kilmer").UserId
                     },
                     new Rating { 
@@ -182,7 +184,7 @@ namespace YFinderAPI.Data
                         RatingDate = DateTime.Now;
                         HotspotId = hotspots.Single(h => h.Title == "BruinWifi").HotspotId,
                         Public = true,
-                        Rating = 2,
+                        Score = 2,
                         User = users.Single(h => h.FullName == "Val Kilmer").UserId
                     },
                     new Rating { 
@@ -190,7 +192,7 @@ namespace YFinderAPI.Data
                         RatingDate = DateTime.Now;
                         HotspotId = hotspots.Single(h => h.Title == "RBwifi").HotspotId,
                         Public = true,
-                        Rating = 2,
+                        Score = 2,
                         User = users.Single(h => h.FullName == "Val Kilmer").UserId
                     },
                     new Rating { 
@@ -198,7 +200,7 @@ namespace YFinderAPI.Data
                         RatingDate = DateTime.Now;
                         HotspotId = hotspots.Single(h => h.FullName == "RBwifi").HotspotId,
                         Public = true,
-                        Rating = 2,
+                        Score = 2,
                         User = users.Single(h => h.FullName == "Dee Veloper").UserId
                     },
                     new Rating { 
@@ -206,7 +208,7 @@ namespace YFinderAPI.Data
                         RatingDate = DateTime.Now;
                         HotspotId = hotspots.Single(h => h.Title == "FMwifi").HotspotId,
                         Public = true,
-                        Rating = 2,
+                        Score = 2,
                         User = users.Single(h => h.FullName == "Jon Snow").UserId
                     }
                 };
