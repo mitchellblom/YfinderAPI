@@ -30,7 +30,11 @@ namespace YFinderAPI.Data
                         Description = "Teamwork Friendly",
                         Description = "Teamwork Averse",
                         Description = "Password Protected",
-                        Description = "Secluded Seating"
+                        Description = "Secluded Seating",
+                        Description = "Easy To Focus",
+                        Description = "Hard To Focus",
+                        Description = "Introvert Paradise",
+                        Description = "Extravert Playground",
                     }
                 };
 
@@ -47,7 +51,7 @@ namespace YFinderAPI.Data
                         Address = "2007 Belmont Blvd", 
                         City = "Nashville", 
                         State= "TN"
-                        Title = "Bongo Java Belmont"
+                        Title = "Bongo Java"
                         UserId = users.Single(n => n.FullName == "Bob Bernstein").UserId,
                         Zip = 37212
                     },
@@ -79,7 +83,7 @@ namespace YFinderAPI.Data
                         Address = "2519 Nolensville Pike", 
                         City = "Nashville", 
                         State= "TN"
-                        Title = "Red Bicycle Nolensville"
+                        Title = "Red Bicycle"
                         UserId = null,
                         Zip = 37211
                     },
@@ -95,7 +99,7 @@ namespace YFinderAPI.Data
                         Address = "4500 Murphy Rd", 
                         City = "Nashville", 
                         State= "TN"
-                        Title = "Edley's BBQ Sylvan Park"
+                        Title = "Edley's BBQ"
                         UserId = null,
                         Zip = 37209
                     }
@@ -111,9 +115,33 @@ namespace YFinderAPI.Data
                 var hotspots = new Hotspot[]
                 {
                     new Hotspot { 
-                        HostId = hosts.Single(n => n.FullName == "Bob Bernstein").HostId,
-                        Title = ""
-                    }
+                        HostId = hosts.Single(h => h.Title == "Bongo Java").HostId,
+                        Title = "BongoWifi"
+                    },
+                    new Hotspot { 
+                        HostId = hosts.Single(h => h.Title == "Belmont University Library").HostId,
+                        Title = "BruinWifi"
+                    },
+                    new Hotspot { 
+                        HostId = hosts.Single(h => h.Title == "Steadfast Coffee").HostId,
+                        Title = "SteadfastWifi"
+                    },
+                    new Hotspot { 
+                        HostId = hosts.Single(h => h.Title == "Nashville Software School").HostId,
+                        Title = "NSSguest"
+                    },
+                    new Hotspot { 
+                        HostId = hosts.Single(h => h.Title == "Red Bicycle").HostId,
+                        Title = "RBwifi"
+                    },
+                    new Hotspot { 
+                        HostId = hosts.Single(h => h.Title == "Farmers Market").HostId,
+                        Title = "FMwifi"
+                    },
+                    new Hotspot { 
+                        HostId = hosts.Single(h => h.Title == "Edley's BBQ").HostId,
+                        Title = "EdleysWifi"
+                    },
                 };
 
                 foreach (Hotspot i in hotspots)
@@ -126,9 +154,60 @@ namespace YFinderAPI.Data
                 var ratings = new Rating[]
                 {
                     new Rating { 
-                        Type = "Visa",
-                        AccountNumber = "12345667890",
-                        CustomerId = users.Single(firstname => firstname.FirstName == "Jelly").CustomerId,
+                        Comment = "Killer good speed, and nice place to focus on the task",
+                        RatingDate = DateTime.Now;
+                        HotspotId = hotspots.Single(h => h.Title == "BongoWifi").HotspotId,
+                        Public = true,
+                        Rating = 4,
+                        User = users.Single(h => h.FullName == "Jango Fett").UserId
+                    },
+                    new Rating { 
+                        Comment = "Not the best wifi, but Iiked the darkness. It was almost like a cave.",
+                        RatingDate = DateTime.Now;
+                        HotspotId = hotspots.Single(h => h.Title == "BruinWifi").HotspotId,
+                        Public = true,
+                        Rating = 4,
+                        User = users.Single(h => h.FullName == "Val Kilmer").UserId
+                    },
+                    new Rating { 
+                        Comment = "Tried the coffee soda while sitting there for hours. Tons of outlets.",
+                        RatingDate = DateTime.Now;
+                        HotspotId = hotspots.Single(h => h.Title == "SteadfastWifi").HotspotId,
+                        Public = true,
+                        Rating = 5,
+                        User = users.Single(h => h.FullName == "Val Kilmer").UserId
+                    },
+                    new Rating { 
+                        Comment = "Couldn't find any outlets. Wouldn't recommend.",
+                        RatingDate = DateTime.Now;
+                        HotspotId = hotspots.Single(h => h.Title == "BruinWifi").HotspotId,
+                        Public = true,
+                        Rating = 2,
+                        User = users.Single(h => h.FullName == "Val Kilmer").UserId
+                    },
+                    new Rating { 
+                        Comment = "They let me sit here all day even though I didn't buy anything.",
+                        RatingDate = DateTime.Now;
+                        HotspotId = hotspots.Single(h => h.Title == "RBwifi").HotspotId,
+                        Public = true,
+                        Rating = 2,
+                        User = users.Single(h => h.FullName == "Val Kilmer").UserId
+                    },
+                    new Rating { 
+                        Comment = "They let me sit here all day even though I didn't buy anything.",
+                        RatingDate = DateTime.Now;
+                        HotspotId = hotspots.Single(h => h.FullName == "RBwifi").HotspotId,
+                        Public = true,
+                        Rating = 2,
+                        User = users.Single(h => h.FullName == "Dee Veloper").UserId
+                    },
+                    new Rating { 
+                        Comment = "They let me sit here all day even though I didn't buy anything.",
+                        RatingDate = DateTime.Now;
+                        HotspotId = hotspots.Single(h => h.Title == "FMwifi").HotspotId,
+                        Public = true,
+                        Rating = 2,
+                        User = users.Single(h => h.FullName == "Jon Snow").UserId
                     }
                 };
 
@@ -141,9 +220,65 @@ namespace YFinderAPI.Data
                 //seeding RatingDescriptors, matching up with the initialized ratings and descriptors by id
                 var ratingDescriptors = new RatingDescriptors[]
                 {
-                    new OrderProduct {
-                        OrderId = orders.Single(o => o.OrderId == 1).OrderId,
-                        ProductId = products.Single(o => o.ProductId == 1).ProductId
+                    new RatingDescriptor {
+                        RatingId = ratings.Single(o => o.RatingId == 1).RatingId,
+                        DescriptorId = descriptors.Single(o => o.DescriptorId == 1).DescriptorId
+                    },
+                    new RatingDescriptor {
+                        RatingId = ratings.Single(o => o.RatingId == 1).RatingId,
+                        DescriptorId = descriptors.Single(o => o.DescriptorId == 3).DescriptorId
+                    },
+                    new RatingDescriptor {
+                        RatingId = ratings.Single(o => o.RatingId == 1).RatingId,
+                        DescriptorId = descriptors.Single(o => o.DescriptorId == 5).DescriptorId
+                    },
+                    new RatingDescriptor {
+                        RatingId = ratings.Single(o => o.RatingId == 2).RatingId,
+                        DescriptorId = descriptors.Single(o => o.DescriptorId == 2).DescriptorId
+                    },
+                    new RatingDescriptor {
+                        RatingId = ratings.Single(o => o.RatingId == 2).RatingId,
+                        DescriptorId = descriptors.Single(o => o.DescriptorId == 4).DescriptorId
+                    },
+                    new RatingDescriptor {
+                        RatingId = ratings.Single(o => o.RatingId == 2).RatingId,
+                        DescriptorId = descriptors.Single(o => o.DescriptorId == 6).DescriptorId
+                    },
+                    new RatingDescriptor {
+                        RatingId = ratings.Single(o => o.RatingId == 3).RatingId,
+                        DescriptorId = descriptors.Single(o => o.DescriptorId == 3).DescriptorId
+                    },
+                    new RatingDescriptor {
+                        RatingId = ratings.Single(o => o.RatingId == 3).RatingId,
+                        DescriptorId = descriptors.Single(o => o.DescriptorId == 5).DescriptorId
+                    },
+                    new RatingDescriptor {
+                        RatingId = ratings.Single(o => o.RatingId == 4).RatingId,
+                        DescriptorId = descriptors.Single(o => o.DescriptorId == 5).DescriptorId
+                    },
+                    new RatingDescriptor {
+                        RatingId = ratings.Single(o => o.RatingId == 4).RatingId,
+                        DescriptorId = descriptors.Single(o => o.DescriptorId == 7).DescriptorId
+                    },
+                    new RatingDescriptor {
+                        RatingId = ratings.Single(o => o.RatingId == 5).RatingId,
+                        DescriptorId = descriptors.Single(o => o.DescriptorId == 9).DescriptorId
+                    },
+                    new RatingDescriptor {
+                        RatingId = ratings.Single(o => o.RatingId == 6).RatingId,
+                        DescriptorId = descriptors.Single(o => o.DescriptorId == 12).DescriptorId
+                    },
+                    new RatingDescriptor {
+                        RatingId = ratings.Single(o => o.RatingId == 6).RatingId,
+                        DescriptorId = descriptors.Single(o => o.DescriptorId == 10).DescriptorId
+                    },
+                    new RatingDescriptor {
+                        RatingId = ratings.Single(o => o.RatingId == 7).RatingId,
+                        DescriptorId = descriptors.Single(o => o.DescriptorId == 11).DescriptorId
+                    },
+                    new RatingDescriptor {
+                        RatingId = ratings.Single(o => o.RatingId == 7).RatingId,
+                        DescriptorId = descriptors.Single(o => o.DescriptorId == 1).DescriptorId
                     }
                 };
                    
@@ -175,8 +310,19 @@ namespace YFinderAPI.Data
                     new User { 
                         FullName = "Kristen McKinney",
                         Host = 1
+                    },
+                    new User { 
+                        FullName = "Jango Fett",
+                        Host = 0
+                    },
+                    new User { 
+                        FullName = "Jon Snow",
+                        Host = 0
+                    },
+                    new User { 
+                        FullName = "Val Kilmer",
+                        Host = 0
                     }
-
                 };
 
                 foreach (User i in users)

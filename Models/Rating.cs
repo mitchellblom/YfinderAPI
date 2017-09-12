@@ -26,7 +26,10 @@ namespace YFinder.Models
     public int Public { get; set; } // int as bool
 
     [Required]
-    public int? Rating { get; set; }
+    public int Rating { get; set; }
+
+    [Required]
+    public float? Speed { get; set; }
 
     [Required]
     [ForeignKey("User")]
